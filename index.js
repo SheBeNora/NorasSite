@@ -1,11 +1,19 @@
-const audio = document.getElementById('audio');
 const playPauseBtn = document.getElementById('play-pause');
 const muteBtn = document.getElementById('mute-toggle');
 const seekSlider = document.getElementById('seek-slider');
 const currentTimeSpan = document.getElementById('current-time');
 const durationSpan = document.getElementById('duration');
 const volumeSlider = document.getElementById('volume-slider');
+const audio = document.getElementById('audio');
 
+if (audio) {
+  const playPauseBtn = document.getElementById('play-pause');
+  const muteBtn = document.getElementById('mute-toggle');
+  const seekSlider = document.getElementById('seek-slider');
+  const currentTimeSpan = document.getElementById('current-time');
+  const durationSpan = document.getElementById('duration');
+  const volumeSlider = document.getElementById('volume-slider');
+}
 const formatTime = (secs) => {
   if (!isFinite(secs)) return '0:00';
   const m = Math.floor(secs / 60);
