@@ -192,6 +192,15 @@ input[type="range"] {
   accent-color: #e4c3fa6e;
 }
 
+.volume-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.8;
+}
+.volume-btn.muted { opacity: 0.3; }
+
 
 /*-Body Class Styles-*/
 

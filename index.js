@@ -1,49 +1,51 @@
 const audio = document.getElementById('audio');
 const playPauseBtn = document.getElementById('play-pause');
+const muteBtn = document.getElementById('mute-toggle');
 const seekSlider = document.getElementById('seek-slider');
 const currentTimeSpan = document.getElementById('current-time');
 const durationSpan = document.getElementById('duration');
 const volumeSlider = document.getElementById('volume-slider');
 
-// Helper to format track time (seconds -> MM:SS)
 const formatTime = (secs) => {
-  const minutes = Math.floor(secs / 60);
-  const seconds = Math.floor(secs % 60);
-  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  if (!isFinite(secs)) return '0:00';
+  const m = Math.floor(secs / 60);
+  const s = Math.floor(secs % 60);
+  return `${m}:${s < 10 ? '0' : ''}${s}`;
 };
 
-// 1. Play / Pause Toggle
-playPauseBtn.addEventListener('click', () => {
-  if (audio.paused) {
-    audio.play();
-    playPauseBtn.classList.add('pause');
-  } else {
-    audio.pause();
-    playPauseBtn.classList.remove('pause');
-  }
-});
+audio.volume = volumeSlider.value / 100; // match the slider on load
 
-// 2. Load Track Metadata (Duration)
+playPauseBtn.addEventListener('click', () => {
+  audio.paused ? audio.play() : audio.pause();
+});
+audio.addEventListener('play', () => playPauseBtn.classList.add('pause'));
+audio.addEventListener('pause', () => playPauseBtn.classList.remove('pause'));
+
 audio.addEventListener('loadedmetadata', () => {
   durationSpan.textContent = formatTime(audio.duration);
 });
 
-// 3. Update Timeline Progress Bar as Audio Plays
+let scrubbing = false;
+seekSlider.addEventListener('pointerdown', () => (scrubbing = true));
+seekSlider.addEventListener('pointerup', () => (scrubbing = false));
+
 audio.addEventListener('timeupdate', () => {
-  if (!seekSlider.matches(':focus')) { // Don't snap while user is scrubbing
-    const progress = (audio.currentTime / audio.duration) * 100;
-    seekSlider.value = progress || 0;
+  if (!scrubbing && audio.duration) {
+    seekSlider.value = (audio.currentTime / audio.duration) * 100;
   }
   currentTimeSpan.textContent = formatTime(audio.currentTime);
 });
 
-// 4. Scrubbing / Seeking through the Track
 seekSlider.addEventListener('input', () => {
-  const time = (seekSlider.value / 100) * audio.duration;
-  audio.currentTime = time;
+  if (audio.duration) audio.currentTime = (seekSlider.value / 100) * audio.duration;
 });
 
-// 5. Volume Management
 volumeSlider.addEventListener('input', () => {
   audio.volume = volumeSlider.value / 100;
+  audio.muted = false;
+});
+
+muteBtn.addEventListener('click', () => {
+  audio.muted = !audio.muted;
+  muteBtn.classList.toggle('muted', audio.muted);
 });
