@@ -1,0 +1,248 @@
+:root {
+  --bg-opacity: 0.7;
+  --bg2-opacity: 0.05;
+  --bg3-opacity: 0.3;
+}
+
+/*-Main Body-*/
+
+main {
+  max-width: 430px;
+  margin: auto auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: "Roffelia", cursive;
+  font-size: 20px;
+  background-color: white;
+}
+
+p {
+  font-size: 16px;
+}
+
+/*-Fonts-*/
+
+@font-face {
+  font-family: "Roffelia";
+  src: url("fonts/Roffelia.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Typewriter";
+  src: url("fonts/MonospaceTypewriter.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BLKCHCRY";
+  src: url("fonts/BLKCHCRY.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*-Background Styles-*/
+
+.Backrooms {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgb(255 255 255 / calc(1 - var(--bg-opacity))), rgb(255 255 255 / calc(1 - var(--bg-opacity)))),
+    url("images/backr_a.webp");
+  background-size: auto, 200px;
+  background-repeat: repeat;
+}
+
+.Sign {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/CameraPhotos/DSCF9731.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Carpet {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgb(255 255 255 / calc(1 - var(--bg-opacity))), rgb(255 255 255 / calc(1 - var(--bg-opacity)))),
+    url("images/Carpet.jpg");
+  background-size: auto, 200px;
+  background-repeat: repeat;
+}
+
+.Tiles {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgb(255 255 255 / calc(1 - var(--bg3-opacity))), rgb(255 255 255 / calc(1 - var(--bg3-opacity)))),
+    url("images/tiles.jpg");
+  background-size: auto, 200px;
+  background-repeat: repeat;
+}
+
+.Buffet {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/BuffetFightBG.png");
+  background-size: unset;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.TreeMoon {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/CameraPhotos/DSCF9712.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Weirdcore {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/WhyDidYouLeave.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*-Body Class Styles-*/
+
+.astral {
+  width:350px;
+  max-width: 100%;
+  height: auto;
+}
+
+.pwie {
+  width: 175px;
+  max-width: 100%;
+  height: auto;
+}
+
+.photo {
+  width: 370px;
+  max-width: 100%;
+  height: auto;
+}
+
+.deco {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  transform: translateX(-50%);
+  opacity: var(--bg2-opacity);
+}
+
+.JsonLike {
+  font-family: "Typewriter", monospace;
+  text-indent: 20px;
+  font-size: 16px;
+}
+
+.oc {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(55, 55, 55, var(--bg-opacity));
+  border-radius: 10px;
+}
+
+.oc-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.oc-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.darkbg {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  top: 0;
+  left: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(55, 55, 55, var(--bg-opacity));
+  border-radius: 10px;
+}
+
+.lightbg {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  top: 0;
+  left: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  border-radius: 10px;
+}
+
+.kinsyumes {
+  font-family: "BLKCHCRY", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+}
