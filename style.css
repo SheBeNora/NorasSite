@@ -144,6 +144,55 @@ p {
   background-position: center;
 }
 
+/*-Audio Styles-*/
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #afafaf9c;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  width: max-content;
+}
+
+/* Custom button states using CSS shapes instead of heavy icon libraries */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.play-btn {
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-width: 10px 0px 10px 20px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.play-btn.pause {
+  border-style: double;
+  border-width: 0px 0px 0px 20px;
+}
+
+.timeline-container, .volume-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+input[type="range"] {
+  cursor: pointer;
+  accent-color: #e4c3fa6e;
+}
+
+
 /*-Body Class Styles-*/
 
 .astral {
