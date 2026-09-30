@@ -155,7 +155,7 @@ p {
   padding: 10px 20px;
   border-radius: 10px;
   font-family: sans-serif;
-  width: max-content;
+  width: 100%;
 }
 
 /* Custom button states using CSS shapes instead of heavy icon libraries */
@@ -180,11 +180,37 @@ button {
   border-width: 0px 0px 0px 20px;
 }
 
-.timeline-container, .volume-container {
+.audio-player {
+  display: flex;
+  flex-wrap: wrap;            /* items drop below when there's no room */
+  align-items: center;
+  justify-content: center;
+  gap: 10px 15px;             /* row gap, column gap */
+  box-sizing: border-box;     /* padding counts toward the 100% */
+  width: 100%;
+  max-width: 100%;
+  background: #afafaf9c;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+.timeline-container,
+.volume-container {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
+  flex: 1 1 140px;            /* grow to fill, shrink, wrap below ~140px */
+  min-width: 0;
+}
+
+.timeline-container input[type="range"],
+.volume-container input[type="range"] {
+  flex: 1;                    /* sliders take the leftover space */
+  min-width: 0;               /* lets them shrink instead of overflowing */
+  width: 100%;
 }
 
 input[type="range"] {
