@@ -99,26 +99,25 @@ p {
   background-repeat: repeat;
 }
 
-.Tiles {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgb(255 255 255 / calc(1 - var(--bg3-opacity))), rgb(255 255 255 / calc(1 - var(--bg3-opacity)))),
-    url("images/tiles.jpg");
-  background-size: auto, 200px;
-  background-repeat: repeat;
-}
-
-.Buffet {
+.RedDarkroom {
   position: relative;
   top: 0;
   left: 0;
   height: 100%;
   z-index: -1;
   background-image: url("images/story_darkroom_red.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.RedBlueOutside {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/story_fathoms_backstreet_s_v1.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
