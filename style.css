@@ -118,8 +118,8 @@ p {
   left: 0;
   height: 100%;
   z-index: -1;
-  background-image: url("images/BuffetFightBG.png");
-  background-size: unset;
+  background-image: url("images/story_darkroom_red.png");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -159,7 +159,7 @@ p {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  margin: 0 auto;          /* centers the player in its parent */
+  margin: 0 auto;
   background: #afafaf9c;
   color: #fff;
   padding: 10px 20px;
@@ -172,7 +172,7 @@ button {
   border: none;
   cursor: pointer;
   position: relative;
-  padding: 0;              /* removes default button padding that can nudge things sideways */
+  padding: 0;
   margin: 0;
 }
 
@@ -205,7 +205,7 @@ button {
   flex: 1;
   min-width: 0;
   width: 100%;
-  margin: 0;               /* range inputs have default side margins */
+  margin: 0;
 }
 
 input[type="range"] {
