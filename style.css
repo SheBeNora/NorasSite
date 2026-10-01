@@ -4,6 +4,10 @@
   --bg3-opacity: 0.3;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /*-Main Body-*/
 
 main {
@@ -148,22 +152,28 @@ p {
 
 .audio-player {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 15px;
+  justify-content: center;
+  gap: 10px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;          /* centers the player in its parent */
   background: #afafaf9c;
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
   font-family: sans-serif;
-  width: 100%;
 }
 
-/* Custom button states using CSS shapes instead of heavy icon libraries */
 button {
   background: none;
   border: none;
   cursor: pointer;
   position: relative;
+  padding: 0;              /* removes default button padding that can nudge things sideways */
+  margin: 0;
 }
 
 .play-btn {
@@ -171,30 +181,13 @@ button {
   height: 20px;
   border-style: solid;
   box-sizing: border-box;
-  border-width: 10px 0px 10px 20px;
+  border-width: 10px 0 10px 20px;
   border-color: transparent transparent transparent #fff;
 }
 
 .play-btn.pause {
   border-style: double;
-  border-width: 0px 0px 0px 20px;
-}
-
-.audio-player {
-  display: flex;
-  flex-wrap: wrap;            /* items drop below when there's no room */
-  align-items: center;
-  justify-content: center;
-  gap: 10px 15px;             /* row gap, column gap */
-  box-sizing: border-box;     /* padding counts toward the 100% */
-  width: 100%;
-  max-width: 100%;
-  background: #afafaf9c;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: sans-serif;
-  position: center;
+  border-width: 0 0 0 20px;
 }
 
 .timeline-container,
@@ -203,15 +196,16 @@ button {
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  flex: 1 1 140px;            /* grow to fill, shrink, wrap below ~140px */
+  flex: 1 1 140px;
   min-width: 0;
 }
 
 .timeline-container input[type="range"],
 .volume-container input[type="range"] {
-  flex: 1;                    /* sliders take the leftover space */
-  min-width: 0;               /* lets them shrink instead of overflowing */
+  flex: 1;
+  min-width: 0;
   width: 100%;
+  margin: 0;               /* range inputs have default side margins */
 }
 
 input[type="range"] {
