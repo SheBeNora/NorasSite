@@ -237,9 +237,37 @@ input[type="range"] {
 }
 
 .photo {
-  width: 370px;
+  width: 99%;
   max-width: 100%;
   height: auto;
+}
+
+.photo-container {
+  position: relative;
+  text-align: left;
+  max-width: 100%;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  padding: 5px;
+  font-size: 14px;
+  font-family: "Typewriter", monospace;
+}
+
+.scroll-container {
+  position: relative;
+  left: 0;
+  width: 100%;
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5);
 }
 
 .deco {

@@ -30,12 +30,28 @@
       <p class="lightbg" style="font-size: 14px;">Recent:<br>
         - Added a Toga to kins list.<br>
         - Changed main page background theme to Rendezvous.<br>
-        - Added recent changes section on main page (thats what this is).</p>
+        - Added recent changes section on main page (thats what this is).<br>
+        - Moved photos to their own page</p>
       <h1>Hello Visitor!</h1>
       <img src="images/Pwie.png" alt="Pwie limbus company classic" class="pwie">
-      <h2>Wawas at you</h2>
       <p>Hi hello, welcome to my silly site that i lwk made myself!<br>
         I am currently working on making it look pretty so it may be funky right now</p>
+        <p>This page has been viewed <span id="visits">0</span> times.</p>
+        <script>
+          const COUNTER_URL = "https://visit-counter.YOURNAME.workers.dev";
+          const visitsEl = document.getElementById("visits");
+          (async () => {
+            try {
+              const counted = sessionStorage.getItem("counted");
+              const res = await fetch(COUNTER_URL, { method: counted ? "GET" : "POST" });
+              const data = await res.json();
+              visitsEl.textContent = data.value;
+              sessionStorage.setItem("counted", "1");
+            } catch (e) {
+              visitsEl.textContent = "?";
+            }
+          })();
+        </script>
     </section>
     <section>
       <h3>Quick fyi</h3>
@@ -55,18 +71,13 @@
         This also applies if you spread racism, transphobia or homophobia near me.</p>
     </section>
     <section>
-      <h3>I also have some photos that i took using my camera.</h3>
-      <img src="images/CameraPhotos/DSCF9711.jpg" alt="photo of a street" class="photo">
-      <img src="images/CameraPhotos/DSCF9712.jpg" alt="photo of the moon behind a tree" class="photo">
-      <img src="images/CameraPhotos/DSCF9731.png" alt="photo of a sign" class="photo">
-    </section>
-    <section>
       <h3>Other pages</h3>
       <p>There are some other pages on this site that you can check out too!</p>
       <a href="LikesDislikes/index.html">Likes and Dislikes</a><br>
-      <a href="Extras/index.html">Extra stuffs</a><br>
-      <a href="KinsAndYumes/index.html">Kins and Yumes</a><br>
       <a href="FriendsNotes/index.html">Friends Notes</a><br>
+      <a href="KinsAndYumes/index.html">Kins and Yumes</a><br>
+      <a href="Photos/index.html">Photo Gallery</a><br>
+      <a href="Extras/index.html">Extra stuffs</a><br>
       <a href="Socials/index.html">My Socials</a>
     </section>
   </main>
