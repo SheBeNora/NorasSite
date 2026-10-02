@@ -37,11 +37,20 @@
       <img src="images/Pwie.png" alt="Pwie limbus company classic" class="pwie">
       <p>Hi hello, welcome to my silly site that i lwk made myself!<br>
         I am currently working on making it look pretty so it may be funky right now</p>
-        <p>This page has been viewed <span id="visits">0</span> times.</p>
+        <p>This page has been viewed <span id="visits">?</span> times.</p>
         <script>
           const COUNTER_URL = "https://jolly-silence-51b9.hamstawellsworth.workers.dev";
           const visitsEl = document.getElementById("visits");
+          const isLocal = location.protocol === "file:" ||
+            ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
+
           (async () => {
+            if (isLocal) {
+              visitsEl.textContent = "nil";
+              return;
+            }
+
+            visitsEl.textContent = "Loading...";
             try {
               const counted = sessionStorage.getItem("counted");
               const res = await fetch(COUNTER_URL, { method: counted ? "GET" : "POST" });
@@ -49,7 +58,7 @@
               visitsEl.textContent = data.value;
               sessionStorage.setItem("counted", "1");
             } catch (e) {
-              visitsEl.textContent = "?";
+              visitsEl.textContent = "Loading...";
             }
           })();
         </script>
