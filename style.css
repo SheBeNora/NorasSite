@@ -306,3 +306,7 @@ input[type="range"] {
   font-size: 22px;
   font-weight: bold;
 }
+
+.HiddenPage-P {
+  font-family: "Typewriter", sans-serif;
+}
